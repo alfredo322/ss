@@ -40,13 +40,10 @@ class Welcome extends CI_Controller {
 		echo 'Registrese nuevamente';
 		}
 	}
-	public function conectar(){
+	public function conectar()
+	{
 		$link=mysql_connect("localhost","root","");
 		if ($link){
 			mysql_select_db("general",$link);
-		}
-	
-
-
-
+			}
 	}
