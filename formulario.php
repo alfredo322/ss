@@ -60,7 +60,7 @@
 </form>
 <?php
   if (isset( $_POST['Enviar'])) {
-      require("Welcome.php");
+      require("registro.php");
   }
 ?>
 
