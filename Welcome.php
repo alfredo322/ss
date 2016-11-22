@@ -23,63 +23,30 @@ class Welcome extends CI_Controller {
 		$data='';
 		$this->load->view('formulario',$data);
 	}
-	public function procesa()
+	public function  registro()
 	{
-		$query = ''; //declaramos para evitar advertencias de PHP
-		$nombre = $this->input->post('Nombres', TRUE);
-		$sql= "insert into maestra(nombres) values('$nombre')  ";
-		$query = $this->db->query($sql, array($query));
-		redirect('/controlador/formulario', 'refresh'); //redirecciona para seguir insertando
- 	}
-	public function procesar()
-	{
-		$query = ''; //declaramos para evitar advertencias de PHP
-		$apellidos = $this->input->post('Apellidos', TRUE);
-		$sql= "insert into maestra(apellidos) values('$apellidos')  ";
-		$query = $this->db->query($sql, array($query));
-		redirect('/controlador/formulario', 'refresh'); //redirecciona para seguir insertando
- 	}
-	public function proces()
-	{
-		$query = ''; //declaramos para evitar advertencias de PHP
-		$edad = $this->input->post('Edad', TRUE);
-		$sql= "insert into maestra(edad) values('$edad')  ";
-		$query = $this->db->query($sql, array($query));
-		redirect('/controlador/formulario', 'refresh'); //redirecciona para seguir insertando
- 	}
-	public function proce()
-	{
-		$query = ''; //declaramos para evitar advertencias de PHP
-		$fecha = $this->input->post('Fecha_Nacimiento', TRUE);
-		$sql= "insert into maestra(fecha_nacimiento) values('$fecha')  ";
-		$query = $this->db->query($sql, array($query));
-		redirect('/controlador/formulario', 'refresh'); //redirecciona para seguir insertando
- 	}
-	public function pro()
-	{
-		$query = ''; //declaramos para evitar advertencias de PHP
-		$celular = $this->input->post('Celular', TRUE);
-		$sql= "insert into detalle(celular) values('$celular')  ";
-		$query = $this->db->query($sql, array($query));
-		redirect('/controlador/formulario', 'refresh'); //redirecciona para seguir insertando
- 	}
-
- 	 public  function reporte_master()
-	 {
-		$data='';
-		$query2=''; 
-		$sql2= "select * from maestra order by id_estudiante desc limit 100";
-		$query2 = $this->db->query($sql2, array($query2));
-		$data['mix']=$query2->result_array();
-       		$this->load->view('reporte', $data);
-	 }
-	public function validar()
-	{
-		if(isset($_POST['Enviar'])) {
-			require("Welcome.php");
+		$nombres=$_POST['Nombres'];
+		$apellidos=$_POST['Apellidos'];
+		$Edad=$_POST['Edad'];
+		$fecha_nacimiento=$_POST['Fecha_nacimiento'];
+		$reqlen=strlen($nombres)*strlen($apellidos)*strlen($edad)*strlen($fecha_nacimiento);
+		if ($reqlen>0)){
+			require("conectar");
+			mysql_query("INSERT INTO maestra VALUES('',$'nombre','$apellidos','$Edad','$fecha_nacimiento')");
+			echo 'Registro Exitoso';
+			}
+		else {
+		echo 'Registrese nuevamente';
 		}
 	}
+	public function conectar(){
+		$link=mysql_connect("localhost","root","");
+		if ($link){
+			mysql_select_db("general",$link);
+		}
+	
 
+			
 
 	
 }
