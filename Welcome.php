@@ -47,3 +47,4 @@ class Welcome extends CI_Controller {
 			mysql_select_db("general",$link);
 			}
 	}
+>?
