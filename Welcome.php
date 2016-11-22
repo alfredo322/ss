@@ -32,7 +32,7 @@ class Welcome extends CI_Controller {
 		$reqlen=strlen($nombres)*strlen($apellidos)*strlen($edad)*strlen($fecha_nacimiento);
 		if ($reqlen>0)){
 			require("conectar");
-			mysql_query("INSERT INTO maestra VALUES('','$nombre','$apellidos','$Edad','$fecha_nacimiento')");
+			mysql_query(INSERT INTO maestra VALUES('','$nombre','$apellidos','$Edad','$fecha_nacimiento'));
 			echo 'Registro Exitoso';
 			}
 		else {
