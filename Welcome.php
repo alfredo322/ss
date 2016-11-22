@@ -29,10 +29,12 @@ class Welcome extends CI_Controller {
 		$apellidos=$_POST['Apellidos'];
 		$Edad=$_POST['Edad'];
 		$fecha_nacimiento=$_POST['Fecha_nacimiento'];
-		$reqlen=strlen($nombres)*strlen($apellidos)*strlen($edad)*strlen($fecha_nacimiento);
+		$celular=$_POST['Celular'];
+		$reqlen=strlen($nombres)*strlen($apellidos)*strlen($edad)*strlen($fecha_nacimiento)*strlen($celular);
 		if ($reqlen>0){
 			require("conectar.php");
 			mysql_query("INSERT INTO maestra VALUES('$nombre','$apellidos','$Edad','$fecha_nacimiento')");
+			mysql_query("INSERT INTO detalle VALUES('$celular')");
 			mysql_close($link);
 			echo 'Registro Exitoso';
 			}
@@ -40,5 +42,6 @@ class Welcome extends CI_Controller {
 		echo 'Registrese nuevamente';
 		}
 	}
+	
 }
 >?
