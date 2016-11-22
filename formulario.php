@@ -2,7 +2,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Form Name</legend>
+<legend>FORMULARIO DE DATOS</legend>
 
 <!-- Text input-->
 <div class="form-group">
@@ -58,3 +58,10 @@
 
 </fieldset>
 </form>
+<?php
+  if (isset( $_POST['Enviar'])) {
+      require("Welcome.php");
+  }
+?>
+
+    
